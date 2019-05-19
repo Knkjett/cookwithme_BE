@@ -14,11 +14,14 @@ const recipeRouter = require('./routes/recipes');
 const favoriteRouter = require('./routes/favorites');
 const groceryRouter = require('./routes/groceries');
 
+const webscrape = require('./routes/webscrape')
+
 
 // BROWSER ROUTES
 app.use('/users', userRouter);
 app.use('/recipes', recipeRouter);
 app.use('/favorites', favoriteRouter);
 app.use('/groceries', groceryRouter);
+app.use('/webscrape', webscrape)
 
 module.exports = {app}
