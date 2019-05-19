@@ -1,15 +1,24 @@
-const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const cors = require('cors')
-//Routes
-const {userRouter} = require('./routes/users');
 
-//Middleware
+// MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/user', userRouter);
+// ROUTERS
+const userRouter = require('./routes/users');
+const recipeRouter = require('./routes/recipes');
+const favoriteRouter = require('./routes/favorites');
+const groceryRouter = require('./routes/groceries');
+
+
+// BROWSER ROUTES
+app.use('/users', userRouter);
+app.use('/recipes', recipeRouter);
+app.use('/favorites', favoriteRouter);
+app.use('/groceries', groceryRouter);
 
 module.exports = {app}

@@ -21,4 +21,4 @@ UserService.update = (id,recentlyViewed) =>{
   })
 }
 
-module.exports = UserService;
+module.exports = {UserService};
