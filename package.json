@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "$(npm bin)/jest --coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "author": "",
   "license": "ISC",
@@ -12,9 +12,12 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
+    "coveralls": "^3.0.3",
     "express": "^4.16.4",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.0",
     "pg-promise": "^8.6.5",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "supertest": "^4.0.2"
   }
 }

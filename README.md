@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/github/Knkjett/cookwithme_BE/badge.svg?branch=cicd_pipeline)](https://coveralls.io/github/Knkjett/cookwithme_BE?branch=cicd_pipeline)
