@@ -32,7 +32,12 @@ test('Testing fail GET user groceries',done=>{
 test('Testing POST user groceries',done=>{
     groceryService.create.mockImplementation(()=>Promise.resolve({'test':1}))
     request(app)
-        .get('/groceries')
+        .post('/groceries')
+        .send({
+            'userid':1,
+            'quantity':1,
+            'item':'something'
+        })
         .then(response=>{
             expect(response).toEqual({'test':1})
             done()
@@ -45,7 +50,12 @@ test('Testing POST user groceries',done=>{
 test('Testing fail POST user groceries',done=>{
     groceryService.readByUser.mockImplementation(()=>Promise.reject())
     request(app)
-        .get('/groceries')
+        .post('/groceries')
+        .send({
+            'userid':1,
+            'quantity':1,
+            'item':'something'
+        })
         .then(response=>{
             done()
         })
