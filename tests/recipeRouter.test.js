@@ -2,14 +2,14 @@ const request = require('supertest')
 
 const {app} = require('../app')
 
-jest.mock('../services/users')
+jest.mock('../services/recipes')
 
-const userService = require('../services/users')
+const recipeService = require('../services/recipes')
 
 test('Testing GET a user', done=>{
-    userService.read.mockImplementation(() => Promise.resolve({'test':1}))
+    recipeService.readByUser.mockImplementation(() => Promise.resolve({'test':1}))
     request(app)
-        .get('/users/test@test.com')
+        .get('/recipes/users/1')
         .then(response =>{
             expect(response).toEqual({'test':1})
             done();
@@ -20,9 +20,9 @@ test('Testing GET a user', done=>{
 })
 
 test('GET request fail test', done =>{
-    userService.read.mockImplementation(() => Promise.reject());
+    recipeService.readByUser.mockImplementation(() => Promise.reject());
     request(app)
-        .get('/users/test@test.com')
+        .get('/recipes/users/1')
         .then(response => {
             done();
         })
@@ -33,9 +33,9 @@ test('GET request fail test', done =>{
 })
 
 test('Testing POST a user', done=>{
-    userService.create.mockImplementation(() => Promise.resolve({'test':1}))
+    recipeService.create.mockImplementation(() => Promise.resolve({'test':1}))
     request(app)
-        .post('/users')
+        .post('/recipes')
         .send({
             'name':'name'
         })
@@ -49,9 +49,9 @@ test('Testing POST a user', done=>{
 })
 
 test('POST request fail test', done =>{
-    userService.create.mockImplementation(() => Promise.reject());
+    recipeService.create.mockImplementation(() => Promise.reject());
     request(app)
-        .post('/users')
+        .post('/recipes')
         .then(response => {
             done();
         })
@@ -61,13 +61,10 @@ test('POST request fail test', done =>{
           })
 })
 
-test('Testing PUT user', done=>{
-    userService.update.mockImplementation(() => Promise.resolve({'test':1}))
+test('Testing DELETE request', done=>{
+    recipeService.delete.mockImplementation(() => Promise.resolve({'test':1}))
     request(app)
-        .put('/users/1')
-        .send({
-            'name':'name'
-        })
+        .delete('/recipes/1')
         .then(response =>{
             expect(response).toEqual({'test':1})
             done();
@@ -77,10 +74,10 @@ test('Testing PUT user', done=>{
         })
 })
 
-test('PUT request fail test', done =>{
-    userService.update.mockImplementation(() => Promise.reject());
+test('DELETE request fail test', done =>{
+    recipeService.delete.mockImplementation(() => Promise.reject());
     request(app)
-        .put('/users/1')
+        .delete('/recipes/1')
         .then(response => {
             done();
         })
