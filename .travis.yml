@@ -12,6 +12,6 @@ script:
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  app: cookwithme_BE
+  app: cookwithme
   on: master
   strategy: git
