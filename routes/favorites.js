@@ -16,7 +16,7 @@ favoriteRouter.post('/', (req, res, next) => {
 favoriteRouter.get('/:id', (req, res, next) => {
   const {id} = req.params;
 
-  favoriteService.readByUser(id)
+  favoriteService.read(id)
     .then(data => res.json(data))
     .catch(err => next(err));
 })

@@ -7,5 +7,5 @@ before_script:
   - export COVERAGE_TOKEN=$COVERAGE_TOKEN
 
 script:
-  - npm run write_coveralls
+  - npm run write-coveralls
   - npm test
