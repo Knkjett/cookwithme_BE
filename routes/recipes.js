@@ -30,4 +30,17 @@ recipeRouter.delete('/:id', (req, res, next) => {
 })
 
 
+// CHECK RECIPE 
+recipeRouter.post('/check', (req,res, next) => {
+   const { url } = req.body;
+ recipeService.checkRecipe(url)
+ .then( data => {
+   if(data.length === 0 ){
+     res.send(false)
+   }
+   else {
+     res.send(data)
+   }
+ })
+})
 module.exports = recipeRouter;

@@ -31,4 +31,10 @@ recipeService.delete = (id) => {
 }
 
 
+// CHECK RECIPE 
+recipeService.checkRecipe = (url) => {
+  const sql = ` 
+   SELECT * FROM recipes WHERE source_url = $[url]`;
+   return db.any(sql, {url})
+}
 module.exports = recipeService;
