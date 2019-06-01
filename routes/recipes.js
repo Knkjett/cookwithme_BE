@@ -19,6 +19,12 @@ recipeRouter.get('/users/:users_id', (req, res, next) => {
     .catch(err => next(err));
 })
 
+// GET ALL RECIPE FROM USERS 
+recipeRouter.get('/users/', (req, res, next) => {
+  recipeService.readAll()
+  .then(data => res.json(data))
+  .catch(err => next(err)); 
+})
 
 // DELETE
 recipeRouter.delete('/:id', (req, res, next) => {
@@ -43,4 +49,5 @@ recipeRouter.post('/check', (req,res, next) => {
    }
  })
 })
+
 module.exports = recipeRouter;
