@@ -6,7 +6,7 @@ const recipeService = require('../services/recipes');
 recipeRouter.post('/', (req, res, next) => {
   const {users_id, title, source_img, source_url, ingredients, steps} = req.body;
   recipeService.create(users_id, title, source_img, source_url, ingredients, steps)
-    .then(data => res.json({success:`recipe created with ID ${id}`}))
+    .then(data => res.json({success:`recipe created with ID ${data.id}`}))
     .catch(err => next(err));
 })
 
@@ -25,7 +25,7 @@ recipeRouter.delete('/:id', (req, res, next) => {
   const {id} = req.params;
 
   recipeService.delete(id)
-    .then(data => res.json({success: `Deleted recipe with ID ${id}`}))
+    .then(data => res.json({success: `Deleted recipe with ID ${data.id}`}))
     .catch(err => next(err));
 })
 
