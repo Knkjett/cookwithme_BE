@@ -22,6 +22,14 @@ recipeService.readByUser = (users_id) => {
   return db.any(sql, {users_id})
 }
 
+// READ ALL RECIPE 
+recipeService.readAll = () => {
+  const sql = `
+  SELECT * FROM recipes
+   `;
+  return db.any(sql)
+}
+
 // DELETE
 recipeService.delete = (id) => {
   const sql = `
