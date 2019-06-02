@@ -20,7 +20,7 @@ recipeRouter.get('/users/:users_id', (req, res, next) => {
 })
 
 // GET ALL RECIPE FROM USERS 
-recipeRouter.get('/users/', (req, res, next) => {
+recipeRouter.get('/users/', (req, res, next) => { 
   recipeService.readAll()
   .then(data => res.json(data))
   .catch(err => next(err)); 

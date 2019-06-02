@@ -9,7 +9,7 @@ pgp.mockImplementation(()=>{
             any: () => Promise.resolve()
         }
     }
-})
+}) 
 
 const recipeService = require('../services/recipes')
 
@@ -22,6 +22,20 @@ test('test create recipe in db',()=>{
 
 test('test get recipe from db',()=>{
     recipeService.readByUser('users_id')
+    .then(response=>{
+        expect(response).toEqual(response)
+    })
+})
+
+test('test get ALL recipes from db',()=>{
+    recipeService.readAll()
+    .then(response=>{
+        expect(response).toEqual(response)
+    })
+})
+
+test('test check recipe',()=>{
+    recipeService.checkRecipe('url')
     .then(response=>{
         expect(response).toEqual(response)
     })
