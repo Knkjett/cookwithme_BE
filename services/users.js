@@ -4,7 +4,7 @@ const userService = {};
 
 // CREATE
 userService.create = (email,token,recentlyViewed) =>{
-  return db.none('INSERT INTO users (email,token,recentlyViewed) VALUES (${email}, ${token},${recentlyViewed});',{
+  return db.one('INSERT INTO users (email,token,recentlyViewed) VALUES (${email}, ${token},${recentlyViewed}) RETURNING id;',{
     email,
     token,
     recentlyViewed

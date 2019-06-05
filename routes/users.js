@@ -6,9 +6,10 @@ const UserService = require('../services/users');
 userRouter.post('/', (req, res) => {
   const {email, token} = req.body;
   UserService.create(email, token)
-    .then(data => {
+    .then(id => {
+      console.log(id)
       res.status(201);
-      res.send({ success: `Created user named : ${email}`});
+      res.send(id);
     })
     .catch(err => {
       res.status(400);
