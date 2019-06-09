@@ -11,12 +11,25 @@ favoriteService.create = (users_id, recipe_id) => {
   return db.one(sql, {users_id, recipe_id})
 }
 
+
 // READ
 favoriteService.read = (id) => {
   const sql = `
   SELECT * FROM favorites
   WHERE id=$[id]`;
   return db.one(sql, {id})
+}
+
+favoriteService.getIDfrmEmail = (email) => {
+  const sql = `
+  SELECT id FROM users
+  WHERE email=$[email]`;
+  return db.one(sql, {email})
+}
+
+favoriteService.getFavID = (users_id,recipe_id) =>{
+  const sql = `SELECT id from favorites WHERE users_id=$[users_id] and recipe_id=$[recipe_id]`;
+  return db.one(sql,{users_id,recipe_id})
 }
 
 // READ BY USER_ID
