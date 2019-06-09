@@ -30,6 +30,7 @@ CREATE TABLE groceries (
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY,
   users_id INT REFERENCES users(id),
+  email VARCHAR REFERENCES users(email),
   recipe_id INT REFERENCES recipes(id)
 );
 
