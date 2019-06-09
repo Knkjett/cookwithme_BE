@@ -49,5 +49,19 @@ recipeRouter.post('/check', (req,res, next) => {
    }
  })
 })
+// FIND RECIPE
+recipeRouter.post('/find/', (req,res) => {
+  console.log("TEST")
+  const { title } = req.body;
+recipeService.findRecipe(title)
+.then( data => {
+  if(data.length === 0 ){
+    res.send(false)
+  }
+  else {
+    res.send(data)
+  }
+})
+})
 
 module.exports = recipeRouter;

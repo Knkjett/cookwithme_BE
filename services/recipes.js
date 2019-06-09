@@ -45,4 +45,10 @@ recipeService.checkRecipe = (url) => {
    SELECT * FROM recipes WHERE source_url = $[url]`;
    return db.any(sql, {url})
 }
+
+recipeService.findRecipe = (title) => {
+  const sql = ` 
+   SELECT * FROM recipes WHERE title = $[title]`;
+   return db.any(sql, {title})
+}
 module.exports = recipeService;
