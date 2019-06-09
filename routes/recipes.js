@@ -10,6 +10,14 @@ recipeRouter.post('/', (req, res, next) => {
     .catch(err => next(err));
 })
 
+// GET INDIVIDUAL RECIPE
+recipeRouter.get('/:id', (req, res, next) => {
+  const {id} = req.params;
+  recipeService.read(id)
+    .then(data => res.json(data))
+    .catch(err => next(err));
+})
+
 
 // GET BY USER
 recipeRouter.get('/users/:users_id', (req, res, next) => {
