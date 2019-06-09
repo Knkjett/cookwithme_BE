@@ -11,6 +11,13 @@ recipeService.create = (users_id, title, source_img, source_url, ingredients, st
   return db.one(sql, {users_id, title, source_img, source_url, ingredients, steps})
 }
 
+// READ INDIVIDUAL RECIPE
+recipeService.read = (id) => {
+  const sql = `
+  SELECT * FROM recipes
+  WHERE id=$[id]`;
+  return db.one(sql, {id})
+}
 
 // READ BY USER_ID
 recipeService.readByUser = (users_id) => {
