@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS cookwithme;
+CREATE DATABASE cookwithme;
+
+\c cookwithme;
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email VARCHAR NOT NULL,
@@ -25,7 +30,6 @@ CREATE TABLE groceries (
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY,
   users_id INT REFERENCES users(id),
-  email VARCHAR REFERENCES users(email),
   recipe_id INT REFERENCES recipes(id)
 );
 
