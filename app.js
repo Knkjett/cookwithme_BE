@@ -16,6 +16,12 @@ const groceryRouter = require('./routes/groceries');
 const webscrape = require('./routes/webscrape')
 
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // BROWSER ROUTES
 app.use('/users', userRouter);
 app.use('/recipes', recipeRouter);
