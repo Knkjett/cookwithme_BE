@@ -37,7 +37,7 @@ test('GET request fail test', done =>{
 test('Testing GET All user', done=>{
     recipeService.readAll.mockImplementation(() => Promise.resolve({'test':1}))
     request(app)
-        .get('/recipes/userall/')
+        .get('/recipes/user/all')
         .then(response =>{
             expect(response).toEqual({'test':1})
             done();
@@ -50,7 +50,7 @@ test('Testing GET All user', done=>{
 test('GET all users request fail test', done =>{
     recipeService.readAll.mockImplementation(() => Promise.reject());
     request(app)
-        .get('/recipes/userall/')
+        .get('/recipes/user/all')
         .then(response => {
             done();
         })
