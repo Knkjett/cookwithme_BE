@@ -41,17 +41,17 @@ webscraper.post('/pioneerwoman/steps', (req, res) => {
 });
 
 // CLOSET COOKING
-webscraper.post('/closetcooking/ingredients', (req, res) => {
-  const {sourceurl} = req.body;
-  webscrapeService.closetIngred(sourceurl)
-  .then((ingred)=> res.send(ingred) )
-});
+// webscraper.post('/closetcooking/ingredients', (req, res) => {
+//   const {sourceurl} = req.body;
+//   webscrapeService.closetIngred(sourceurl)
+//   .then((ingred)=> res.send(ingred) )
+// });
 
-webscraper.post('/closetcooking/steps', (req, res) => {
-  const {sourceurl} = req.body;
-  webscrapeService.closetSteps(sourceurl)
-  .then((ingred)=> res.send(ingred))
-});
+// webscraper.post('/closetcooking/steps', (req, res) => {
+//   const {sourceurl} = req.body;
+//   webscrapeService.closetSteps(sourceurl)
+//   .then((ingred)=> res.send(ingred))
+// });
 
 
 

@@ -99,30 +99,30 @@ webscrapeService.pioneerSteps = (url) => {
 }
 
 // CLOSET COOKING
-webscrapeService.closetIngred = (url) => {
-  return new Promise((resolve) => {
-    let ingred = []
-    request(url, function (error, response, body) {
-      const $ = cheerio.load(body);
-      for (let i = 0; i < $('.ingredients')[0].children.length; i++) {
-        ingred.push($('.ingredients')[0].children[i].children[0].data)
-      }
-      resolve(ingred);
-    });
-  })
-}
-webscrapeService.closetSteps = (url) => {
-  return new Promise((resolve) => {
-    let steps = []
-    request(url, function (error, response, body) {
-      const $ = cheerio.load(body);
-      for (let i = 0; i < $('.instructions')[0].children.length; i++) {
-        steps.push($('.instructions')[0].children[i].children[0].data)
-      }
-      resolve(steps);
-    });
-  })
-}
+// webscrapeService.closetIngred = (url) => {
+//   return new Promise((resolve) => {
+//     let ingred = []
+//     request(url, function (error, response, body) {
+//       const $ = cheerio.load(body);
+//       for (let i = 0; i < $('.ingredients')[0].children.length; i++) {
+//         ingred.push($('.ingredients')[0].children[i].children[0].data)
+//       }
+//       resolve(ingred);
+//     });
+//   })
+// }
+// webscrapeService.closetSteps = (url) => {
+//   return new Promise((resolve) => {
+//     let steps = []
+//     request(url, function (error, response, body) {
+//       const $ = cheerio.load(body);
+//       for (let i = 0; i < $('.instructions')[0].children.length; i++) {
+//         steps.push($('.instructions')[0].children[i].children[0].data)
+//       }
+//       resolve(steps);
+//     });
+//   })
+// }
 
 
 module.exports = webscrapeService

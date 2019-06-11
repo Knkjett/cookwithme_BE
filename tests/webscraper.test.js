@@ -82,28 +82,28 @@ test('Testing POST pioneerwoman/steps',done=>{
     .catch(e=>done())
 })
 
-test('Testing POST closetcooking/ingredients',done=>{
-    webscrapeService.closetIngred.mockImplementation(()=>Promise.resolve({'test':1}))
-    request(app)
-    .post('/webscrape/closetcooking/ingredients')
-    .send({
-        'sourceurl':'url'
-    })
-    .then(response=>{
-        expect(response).toEqual({'test':1})
-    })
-    .catch(e=>done())
-})
+// test('Testing POST closetcooking/ingredients',done=>{
+//     webscrapeService.closetIngred.mockImplementation(()=>Promise.resolve({'test':1}))
+//     request(app)
+//     .post('/webscrape/closetcooking/ingredients')
+//     .send({
+//         'sourceurl':'url'
+//     })
+//     .then(response=>{
+//         expect(response).toEqual({'test':1})
+//     })
+//     .catch(e=>done())
+// })
 
-test('Testing POST closetcooking/steps',done=>{
-    webscrapeService.closetSteps.mockImplementation(()=>Promise.resolve({'test':1}))
-    request(app)
-    .post('/webscrape/closetcooking/steps')
-    .send({
-        'sourceurl':'url'
-    })
-    .then(response=>{
-        expect(response).toEqual({'test':1})
-    })
-    .catch(e=>done())
-})
+// test('Testing POST closetcooking/steps',done=>{
+//     webscrapeService.closetSteps.mockImplementation(()=>Promise.resolve({'test':1}))
+//     request(app)
+//     .post('/webscrape/closetcooking/steps')
+//     .send({
+//         'sourceurl':'url'
+//     })
+//     .then(response=>{
+//         expect(response).toEqual({'test':1})
+//     })
+//     .catch(e=>done())
+// })
