@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-//const cors = require('cors')
+const cors = require('cors')
 
 // MIDDLEWARE
 app.use(function(req, res, next) {
@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 
 // ROUTERS
 const userRouter = require('./routes/users');
