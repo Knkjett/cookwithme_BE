@@ -1,7 +1,9 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+  , cors = require('cors')
+  , app = express();
+app.options('*', cors());
 const bodyParser = require('body-parser');
-const cors = require('cors')
+// const cors = require('cors')
 
 // MIDDLEWARE
 // app.use(function(req, res, next) {
