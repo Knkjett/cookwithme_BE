@@ -1,4 +1,6 @@
-const {db} = require('./dbConnect');
+const {
+  db
+} = require('./dbConnect');
 const recipeService = {};
 
 
@@ -8,7 +10,14 @@ recipeService.create = (users_id, title, source_img, source_url, ingredients, st
   INSERT INTO recipes (users_id, title, source_img, source_url, ingredients, steps)
   VALUES ($[users_id], $[title], $[source_img], $[source_url], $[ingredients], $[steps])
   RETURNING id`;
-  return db.one(sql, {users_id, title, source_img, source_url, ingredients, steps})
+  return db.one(sql, {
+    users_id,
+    title,
+    source_img,
+    source_url,
+    ingredients,
+    steps
+  })
 }
 
 // READ INDIVIDUAL RECIPE
@@ -16,7 +25,9 @@ recipeService.read = (id) => {
   const sql = `
   SELECT * FROM recipes
   WHERE id=$[id]`;
-  return db.one(sql, {id})
+  return db.one(sql, {
+    id
+  })
 }
 
 // READ BY USER_ID
@@ -26,14 +37,15 @@ recipeService.readByUser = (users_id) => {
   INNER JOIN users
   on recipes.users_id = users.id
   WHERE users.id=$[users_id]`;
-  return db.any(sql, {users_id})
+  return db.any(sql, {
+    users_id
+  })
 }
 
 // READ ALL RECIPE 
 recipeService.readAll = () => {
   const sql = `
-  SELECT * FROM recipes
-   `;
+  SELECT * FROM recipes`;
   return db.any(sql)
 }
 
@@ -42,7 +54,9 @@ recipeService.delete = (id) => {
   const sql = `
   DELETE from recipes
   WHERE id=$[id]`;
-  return db.none(sql, {id})
+  return db.none(sql, {
+    id
+  })
 }
 
 
@@ -50,12 +64,16 @@ recipeService.delete = (id) => {
 recipeService.checkRecipe = (url) => {
   const sql = ` 
    SELECT * FROM recipes WHERE source_url = $[url]`;
-   return db.any(sql, {url})
+  return db.any(sql, {
+    url
+  })
 }
 
 recipeService.findRecipe = (title) => {
   const sql = ` 
    SELECT * FROM recipes WHERE title = $[title]`;
-   return db.any(sql, {title})
+  return db.any(sql, {
+    title
+  })
 }
 module.exports = recipeService;
