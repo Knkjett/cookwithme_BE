@@ -18,6 +18,12 @@ recipeRouter.get('/:id', (req, res, next) => {
     .catch(err => next(err));
 })
 
+// GET ALL RECIPE FROM USERS 
+recipeRouter.get('/userall/', (req, res, next) => { 
+  recipeService.readAll()
+  .then(data => res.json(data))
+  .catch(err => next(err)); 
+})
 
 // GET BY USER
 recipeRouter.get('/users/:users_id', (req, res, next) => {
@@ -25,13 +31,6 @@ recipeRouter.get('/users/:users_id', (req, res, next) => {
   recipeService.readByUser(users_id)
     .then(data => res.json(data))
     .catch(err => next(err));
-})
-
-// GET ALL RECIPE FROM USERS 
-recipeRouter.get('/users/', (req, res, next) => { 
-  recipeService.readAll()
-  .then(data => res.json(data))
-  .catch(err => next(err)); 
 })
 
 // DELETE
