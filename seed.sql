@@ -16,6 +16,7 @@ CREATE TABLE recipes (
   title VARCHAR NOT NULL,
   source_img TEXT,
   source_url TEXT,
+  publisher TEXT,
   ingredients TEXT [],
   steps TEXT []
 );

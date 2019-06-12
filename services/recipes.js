@@ -5,16 +5,17 @@ const recipeService = {};
 
 
 // CREATE
-recipeService.create = (users_id, title, source_img, source_url, ingredients, steps) => {
+recipeService.create = (users_id, title, source_img, source_url, publisher, ingredients, steps) => {
   const sql = `
-  INSERT INTO recipes (users_id, title, source_img, source_url, ingredients, steps)
-  VALUES ($[users_id], $[title], $[source_img], $[source_url], $[ingredients], $[steps])
+  INSERT INTO recipes (users_id, title, source_img, source_url, publisher, ingredients, steps)
+  VALUES ($[users_id], $[title], $[source_img], $[source_url],$[publisher], $[ingredients], $[steps])
   RETURNING id`;
   return db.one(sql, {
     users_id,
     title,
     source_img,
     source_url,
+    publisher,
     ingredients,
     steps
   })
