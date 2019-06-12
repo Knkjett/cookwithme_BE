@@ -4,8 +4,8 @@ const recipeService = require('../services/recipes');
 
 // CREATE
 recipeRouter.post('/', (req, res, next) => {
-  const {users_id, title, source_img, source_url, publisher, ingredients, steps} = req.body;
-  recipeService.create(users_id, title, source_img, source_url, publisher, ingredients, steps)
+  const {users_id, title, source_img, source_url, publisher_url, ingredients, steps} = req.body;
+  recipeService.create(users_id, title, source_img, source_url, publisher_url, ingredients, steps)
     .then(data => res.json(data))
     .catch(err => next(err))
 })
