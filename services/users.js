@@ -25,5 +25,10 @@ userService.update = (id,recentlyViewed) =>{
     recentlyViewed
   })
 }
+userService.getRecent = (id) =>{
+  return db.any ('SELECT recentlyViewed FROM users WHERE id=${id}',{
+    id
+  })
+}
 
 module.exports = userService;

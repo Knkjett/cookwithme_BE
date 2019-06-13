@@ -35,7 +35,8 @@ userRouter.get('/:email', (req, res) => {
 userRouter.put('/:id', (req, res) => {
   const {id} = req.params;
   const {recentlyViewed} = req.body;
-
+  console.log('recent viewed',recentlyViewed)
+  console.log('id is ', id)
   UserService.update(id,recentlyViewed)
     .then(data => {
       res.status(201);
@@ -46,5 +47,17 @@ userRouter.put('/:id', (req, res) => {
       res.send({"Message":err})
     })
 });
+userRouter.get('/recent/:id', (req,res)=>{
+  const {id} = req.params;
+  UserService.getRecent(id)
+  .then(data =>{
+    res.status(200);
+    res.send({data: data})
+  })
+  .catch(err=>{
+    res.status(400)
+    res.send({"Message": err})
+  })
+})
 
 module.exports = userRouter;
